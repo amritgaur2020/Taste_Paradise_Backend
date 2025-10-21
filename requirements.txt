@@ -1,0 +1,62 @@
+# ==================== CORE WEB FRAMEWORK ====================
+# FastAPI - Modern web framework for building APIs
+fastapi==0.115.5
+# Uvicorn - ASGI server with performance extras
+uvicorn[standard]==0.32.1
+# Python multipart - Handle file uploads and form data
+python-multipart==0.0.18
+
+# ==================== DATABASE ====================
+# Motor - Async MongoDB driver for Python
+motor==3.6.0
+# PyMongo - MongoDB driver (FIXED VERSION for motor 3.6.0 compatibility)
+pymongo==4.9.0
+
+# ==================== AUTHENTICATION & SECURITY ====================
+# Passlib - Password hashing library
+passlib[bcrypt]==1.7.4
+# Bcrypt - Password hashing algorithm
+bcrypt==4.2.0
+# Cryptography - Cryptographic recipes and primitives
+cryptography==43.0.1
+# Python-JOSE - JavaScript Object Signing and Encryption for JWTs
+python-jose[cryptography]==3.3.0
+
+# ==================== ENVIRONMENT & CONFIGURATION ====================
+# Python-dotenv - Read .env files for configuration
+python-dotenv==1.0.1
+# Pydantic - Data validation using Python type hints
+pydantic==2.10.3
+pydantic-settings==2.6.1
+
+# ==================== HTTP REQUESTS ====================
+# HTTPX - Modern HTTP client with async support
+httpx==0.28.0
+# Requests - Classic HTTP library (for legacy/sync code)
+requests==2.32.3
+
+# ==================== DATA PROCESSING & EXCEL ====================
+# Pandas - Data manipulation and analysis
+pandas==2.2.3
+# OpenPyXL - Read/write Excel files
+openpyxl==3.1.5
+# XlsxWriter - Alternative Excel writer
+xlsxwriter==3.2.0
+
+# ==================== TASK SCHEDULING ====================
+# APScheduler - In-process task scheduler
+apscheduler==3.10.4
+# PyTZ - Timezone support for scheduler
+pytz==2024.2
+
+# ==================== MONITORING & LOGGING ====================
+# PSUtil - System and process utilities
+psutil==6.1.0
+
+# ==================== CORS & MIDDLEWARE ====================
+# Starlette - ASGI framework (included with FastAPI)
+starlette==0.41.3
+
+# ==================== PERFORMANCE ====================
+# Orjson - Fast JSON serialization
+orjson==3.10.10
