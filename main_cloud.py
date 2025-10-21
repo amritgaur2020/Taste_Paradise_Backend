@@ -257,8 +257,8 @@ async def startup():
         logger.info(f"Connecting to MongoDB...")
         mongo_client = AsyncIOMotorClient(
             MONGODB_URI,
-            serverSelectionTimeoutMS=30000,
-            connectTimeoutMS=30000,
+            serverSelectionTimeoutMS=5000,
+            connectTimeoutMS=5000,
             tls=True,
             tlsAllowInvalidCertificates=True
         )
