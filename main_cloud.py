@@ -250,24 +250,26 @@ scheduler = AsyncIOScheduler()
 
 @app.on_event("startup")
 async def startup():
-    """Initialize database connection and scheduler"""
     global mongo_client, db
-    
+    logger.info("Connecting to MongoDB...")
     try:
-        logger.info(f"Connecting to MongoDB...")
-        mongo_client = AsyncIOMotorClient(
+        mongo_client = MongoClient(
             MONGODB_URI,
             serverSelectionTimeoutMS=5000,
             connectTimeoutMS=5000,
             tls=True,
             tlsAllowInvalidCertificates=True
         )
+        # Try to ping but don't crash if it fails
+        mongo_client.admin.command('ping')
+        db = mongo_client['taste_paradise']
+        logger.info("✅ MongoDB connected successfully!")
+    except Exception as e:
+        logger.error(f"❌ Failed to connect to MongoDB: {e}")
+        logger.warning("⚠️  Server starting WITHOUT MongoDB connection!")
+        mongo_client = None
+        db = None
 
-        
-        # Test connection
-        await mongo_client.admin.command('ping')
-        db = mongo_client.taste_paradise
-        logger.info("✅ Connected to MongoDB successfully!")
         
         # Initialize payment routes
         init_payment_routes(db)
